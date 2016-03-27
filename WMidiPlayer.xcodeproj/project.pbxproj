@@ -9,11 +9,19 @@
 /* Begin PBXBuildFile section */
 		C3ABAE651CA6F617006F2811 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ABAE641CA6F617006F2811 /* main.m */; };
 		C3ABAE681CA6F618006F2811 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ABAE671CA6F618006F2811 /* AppDelegate.m */; };
-		C3ABAE6B1CA6F618006F2811 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ABAE6A1CA6F618006F2811 /* ViewController.m */; };
 		C3ABAE6E1CA6F618006F2811 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3ABAE6C1CA6F618006F2811 /* Main.storyboard */; };
 		C3ABAE711CA6F618006F2811 /* WMidiPlayer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3ABAE6F1CA6F618006F2811 /* WMidiPlayer.xcdatamodeld */; };
 		C3ABAE731CA6F618006F2811 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3ABAE721CA6F618006F2811 /* Assets.xcassets */; };
 		C3ABAE761CA6F618006F2811 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3ABAE741CA6F618006F2811 /* LaunchScreen.storyboard */; };
+		C3ABAE7F1CA6F66D006F2811 /* MidiPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ABAE7E1CA6F66D006F2811 /* MidiPlayerVC.m */; };
+		C3ABAE851CA70EC3006F2811 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = C3ABAE811CA70EC3006F2811 /* back.png */; };
+		C3ABAE861CA70EC3006F2811 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = C3ABAE821CA70EC3006F2811 /* next.png */; };
+		C3ABAE871CA70EC3006F2811 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = C3ABAE831CA70EC3006F2811 /* pause.png */; };
+		C3ABAE881CA70EC3006F2811 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = C3ABAE841CA70EC3006F2811 /* play.png */; };
+		C3ABAE8B1CA71172006F2811 /* MidiPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3ABAE8A1CA71172006F2811 /* MidiPlayer.m */; };
+		C3ABAE8F1CA71363006F2811 /* Winter Wonderland (solo piano).mid in Resources */ = {isa = PBXBuildFile; fileRef = C3ABAE8E1CA71363006F2811 /* Winter Wonderland (solo piano).mid */; };
+		C3ABAE911CA7162D006F2811 /* Sonata14.mid in Resources */ = {isa = PBXBuildFile; fileRef = C3ABAE901CA7162D006F2811 /* Sonata14.mid */; };
+		C3ABAE931CA716C0006F2811 /* FantaGM32.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = C3ABAE921CA716C0006F2811 /* FantaGM32.sf2 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,13 +29,22 @@
 		C3ABAE641CA6F617006F2811 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C3ABAE661CA6F617006F2811 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C3ABAE671CA6F618006F2811 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C3ABAE691CA6F618006F2811 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C3ABAE6A1CA6F618006F2811 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C3ABAE6D1CA6F618006F2811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3ABAE701CA6F618006F2811 /* WMidiPlayer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WMidiPlayer.xcdatamodel; sourceTree = "<group>"; };
 		C3ABAE721CA6F618006F2811 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3ABAE751CA6F618006F2811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3ABAE771CA6F618006F2811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3ABAE7D1CA6F66D006F2811 /* MidiPlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiPlayerVC.h; sourceTree = "<group>"; };
+		C3ABAE7E1CA6F66D006F2811 /* MidiPlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiPlayerVC.m; sourceTree = "<group>"; };
+		C3ABAE811CA70EC3006F2811 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		C3ABAE821CA70EC3006F2811 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
+		C3ABAE831CA70EC3006F2811 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		C3ABAE841CA70EC3006F2811 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		C3ABAE891CA71172006F2811 /* MidiPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiPlayer.h; sourceTree = "<group>"; };
+		C3ABAE8A1CA71172006F2811 /* MidiPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiPlayer.m; sourceTree = "<group>"; };
+		C3ABAE8E1CA71363006F2811 /* Winter Wonderland (solo piano).mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "Winter Wonderland (solo piano).mid"; sourceTree = "<group>"; };
+		C3ABAE901CA7162D006F2811 /* Sonata14.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = Sonata14.mid; sourceTree = "<group>"; };
+		C3ABAE921CA716C0006F2811 /* FantaGM32.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = FantaGM32.sf2; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +77,16 @@
 		C3ABAE621CA6F617006F2811 /* WMidiPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				C3ABAE921CA716C0006F2811 /* FantaGM32.sf2 */,
+				C3ABAE901CA7162D006F2811 /* Sonata14.mid */,
+				C3ABAE8E1CA71363006F2811 /* Winter Wonderland (solo piano).mid */,
+				C3ABAE891CA71172006F2811 /* MidiPlayer.h */,
+				C3ABAE8A1CA71172006F2811 /* MidiPlayer.m */,
+				C3ABAE7D1CA6F66D006F2811 /* MidiPlayerVC.h */,
+				C3ABAE7E1CA6F66D006F2811 /* MidiPlayerVC.m */,
+				C3ABAE801CA70EC3006F2811 /* images */,
 				C3ABAE661CA6F617006F2811 /* AppDelegate.h */,
 				C3ABAE671CA6F618006F2811 /* AppDelegate.m */,
-				C3ABAE691CA6F618006F2811 /* ViewController.h */,
-				C3ABAE6A1CA6F618006F2811 /* ViewController.m */,
 				C3ABAE6C1CA6F618006F2811 /* Main.storyboard */,
 				C3ABAE721CA6F618006F2811 /* Assets.xcassets */,
 				C3ABAE741CA6F618006F2811 /* LaunchScreen.storyboard */,
@@ -80,6 +103,17 @@
 				C3ABAE641CA6F617006F2811 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3ABAE801CA70EC3006F2811 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				C3ABAE811CA70EC3006F2811 /* back.png */,
+				C3ABAE821CA70EC3006F2811 /* next.png */,
+				C3ABAE831CA70EC3006F2811 /* pause.png */,
+				C3ABAE841CA70EC3006F2811 /* play.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +174,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3ABAE881CA70EC3006F2811 /* play.png in Resources */,
+				C3ABAE911CA7162D006F2811 /* Sonata14.mid in Resources */,
+				C3ABAE851CA70EC3006F2811 /* back.png in Resources */,
+				C3ABAE861CA70EC3006F2811 /* next.png in Resources */,
+				C3ABAE931CA716C0006F2811 /* FantaGM32.sf2 in Resources */,
+				C3ABAE871CA70EC3006F2811 /* pause.png in Resources */,
+				C3ABAE8F1CA71363006F2811 /* Winter Wonderland (solo piano).mid in Resources */,
 				C3ABAE761CA6F618006F2811 /* LaunchScreen.storyboard in Resources */,
 				C3ABAE731CA6F618006F2811 /* Assets.xcassets in Resources */,
 				C3ABAE6E1CA6F618006F2811 /* Main.storyboard in Resources */,
@@ -153,9 +194,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3ABAE6B1CA6F618006F2811 /* ViewController.m in Sources */,
+				C3ABAE8B1CA71172006F2811 /* MidiPlayer.m in Sources */,
 				C3ABAE681CA6F618006F2811 /* AppDelegate.m in Sources */,
 				C3ABAE651CA6F617006F2811 /* main.m in Sources */,
+				C3ABAE7F1CA6F66D006F2811 /* MidiPlayerVC.m in Sources */,
 				C3ABAE711CA6F618006F2811 /* WMidiPlayer.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
