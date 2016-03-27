@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MidiPlayerVC : UIViewController
+@interface MidiPlayerVC : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) IBOutlet UIButton *playButton;
 @property (nonatomic, strong) IBOutlet UIButton *nextButton;
@@ -17,6 +17,9 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *fullTimeLabel;
 @property (nonatomic, strong) IBOutlet UILabel *playTimeLabel;
+@property (nonatomic, strong) IBOutlet UILabel *songNameLabel;
+
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 
 - (IBAction)playAction:(id)sender;

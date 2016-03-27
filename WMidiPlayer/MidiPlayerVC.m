@@ -8,6 +8,7 @@
 
 #import "MidiPlayerVC.h"
 #import "MidiPlayer.h"
+#import "SongListCell.h"
 
 @interface MidiPlayerVC ()
 
@@ -18,16 +19,30 @@
     BOOL isPlay;
     MidiPlayer *player;
     NSTimer *timer;
+    NSArray *songList;
+    SongListCell *oldSelectedCell;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Sonata14.mid" ofType:nil];
+    
     player = [[MidiPlayer alloc] init];
-    [player loadMIDI:path programs:@[@0, @2]];
     isPlay = NO;
     [_playerSlider setValue:0.0];
     _fullTimeLabel.text = @"0.00";
+
+    self.tableView.layer.backgroundColor = [UIColor clearColor].CGColor;
+    
+    songList = @[@"1.mid",@"2.mid",@"3.mid",@"4.mid",@"5.mid",@"6.mid",@"7.mid",@"8.mid",@"9.mid",@"10.mid",];
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+-(void)setTrackName:(NSString*)fileName{
+    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
+    [player loadMIDI:path programs:@[@0, @2]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +50,11 @@
 }
 
 -(IBAction)playAction:(id)sender{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    SongListCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [cell.playActivView stopAnimating];
+    cell.playActivView.hidden = YES;
+    
     if (!isPlay) {
         [player play];
         [_playButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
@@ -80,6 +100,43 @@
 
 -(IBAction)backAction:(id)sender{
 
+}
+
+#pragma mark UITableViewDelegate
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [songList count];
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *IDENT = @"SONG";
+    SongListCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENT];
+    if (!cell) {
+        cell = [[SongListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDENT];
+    }
+    cell.songName.text = [songList objectAtIndex:indexPath.row];
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [player stop];
+    if (isPlay) {
+        [oldSelectedCell.playActivView stopAnimating];
+        oldSelectedCell.playActivView.hidden = YES;
+        [_playButton setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+        isPlay = NO;
+    }
+    _songNameLabel.text = [songList objectAtIndex:indexPath.row];
+    [self setTrackName:[songList objectAtIndex:indexPath.row]];
+    [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(playAction:) userInfo:nil repeats:NO];
+    SongListCell *cell = (SongListCell*)[tableView cellForRowAtIndexPath:indexPath];
+    cell.playActivView.hidden = NO;
+    [cell.playActivView startAnimating];
+    oldSelectedCell = cell;
 }
 
 @end
