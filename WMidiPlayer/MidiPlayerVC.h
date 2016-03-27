@@ -23,4 +23,6 @@
 - (IBAction)nextAction:(id)sender;
 - (IBAction)backAction:(id)sender;
 
+-(IBAction)movePlayerSlider:(id)sender;
+
 @end

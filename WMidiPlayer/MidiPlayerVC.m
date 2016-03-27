@@ -27,6 +27,7 @@
     [player loadMIDI:path programs:@[@0, @2]];
     isPlay = NO;
     [_playerSlider setValue:0.0];
+    _fullTimeLabel.text = @"0.00";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,6 +39,8 @@
         [player play];
         [_playButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
         isPlay = YES;
+        
+        _fullTimeLabel.text = [self timeCalculator:[player fullTime]];
         [_playerSlider setMaximumValue:[player fullTime]];
         timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                  target:self
@@ -52,11 +55,23 @@
     }
 }
 
+-(NSString*)timeCalculator:(int32_t)time {
+    int sec = time % 60;
+    int min = time/60;
+    if (sec < 10) {
+        return [NSString stringWithFormat:@"%i:0%i", min, sec];
+    }
+    return [NSString stringWithFormat:@"%i:%i", min, sec];
+}
+
 -(void)timerCheck{
     Float64 sec = player.getTime;
-    NSLog(@"%f", sec);
     _playerSlider.value = sec;
-   // _statTimeLabel.text = [NSString stringWithFormat:@"%.2f", (float)sec/60];
+    _playTimeLabel.text = [self timeCalculator:sec];
+}
+
+-(IBAction)movePlayerSlider:(id)sender{
+    [player setTime:_playerSlider.value];
 }
 
 -(IBAction)nextAction:(id)sender{
