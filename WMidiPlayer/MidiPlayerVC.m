@@ -95,11 +95,39 @@
 }
 
 -(IBAction)nextAction:(id)sender{
-
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    if (indexPath == nil) {
+        indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    } else {
+        indexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
+    }
+    if (indexPath.row == [self.tableView numberOfRowsInSection:0]-1) {
+        _nextButton.enabled = NO;
+    }
+    if (indexPath.row == 0) {
+        _backButton.enabled = NO;
+    } else {
+        _backButton.enabled = YES;
+    }
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+    [self playSong:indexPath];
 }
 
 -(IBAction)backAction:(id)sender{
-
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    if (indexPath == nil) {
+        indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    } else if(indexPath.row >= 1) {
+        indexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:0];
+    }
+    if (indexPath.row == 0) {
+        _backButton.enabled = NO;
+    }
+    if (indexPath.row < [self.tableView numberOfRowsInSection:0]-1) {
+        _nextButton.enabled = YES;
+    }
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+    [self playSong:indexPath];
 }
 
 #pragma mark UITableViewDelegate
@@ -123,6 +151,11 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self playSong:indexPath];
+}
+
+-(void)playSong:(NSIndexPath*)indexPath
+{
     [player stop];
     if (isPlay) {
         [oldSelectedCell.playActivView stopAnimating];
@@ -133,7 +166,7 @@
     _songNameLabel.text = [songList objectAtIndex:indexPath.row];
     [self setTrackName:[songList objectAtIndex:indexPath.row]];
     [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(playAction:) userInfo:nil repeats:NO];
-    SongListCell *cell = (SongListCell*)[tableView cellForRowAtIndexPath:indexPath];
+    SongListCell *cell = (SongListCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     cell.playActivView.hidden = NO;
     [cell.playActivView startAnimating];
     oldSelectedCell = cell;
