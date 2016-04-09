@@ -41,8 +41,10 @@
 }
 
 -(void)setTrackName:(NSString*)fileName{
-    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
-    [player loadMIDI:path programs:@[@0, @2]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
+        [player loadMIDI:path programs:@[@0, @2]];
+    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -165,7 +167,7 @@
     }
     _songNameLabel.text = [songList objectAtIndex:indexPath.row];
     [self setTrackName:[songList objectAtIndex:indexPath.row]];
-    [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(playAction:) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(playAction:) userInfo:nil repeats:NO];
     SongListCell *cell = (SongListCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     cell.playActivView.hidden = NO;
     [cell.playActivView startAnimating];
